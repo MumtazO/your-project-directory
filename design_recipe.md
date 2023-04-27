@@ -65,3 +65,43 @@ grammar_checker(5): => "This is not a string!"
 For each example you create as a test, implement the behaviour that allows the function to return the right value for the given arguments.
 
 Then return to step 3 until you have addressed the problem you were given. You may also need to revise your design, for example if you realise you made a mistake earlier.
+
+
+CHALLENGE
+
+1. Describe the Problem
+
+As a user
+So that I can keep track of my tasks
+I want to check if a text includes the string #TODO.
+
+2. Design the Function Signature
+
+
+The name of the function.
+# function name: task_tracker
+
+- What parameters it takes, their names and data types.
+# Arguments: one text
+# data type: string
+
+- What it returns and the data type of that value.
+# return data type = return a string that confirms the text includes #TODO
+
+- Any other side effects it might have.
+# if it's not a string, returns error message
+
+3. Create Examples as Tests
+task_tracker("#TODO"): => "this task is still pending"
+
+task_tracker("done"): => "this is not pending"
+
+task_tracker(5): => "This is not a string!"
+
+task_tracker("TODO"): => "this is not pending"
+
+
+4. Implement the Behaviour
+For each example you create as a test, implement the behaviour that allows the function to return the right value for the given arguments.
+
+Then return to step 3 until you have addressed the problem you were given. You may also need to revise your design, for example if you realise you made a mistake earlier.
