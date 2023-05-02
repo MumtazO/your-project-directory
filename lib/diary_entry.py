@@ -21,14 +21,12 @@ class DiaryEntry:
 
 
     def reading_chunk(self, wpm, minutes):
-        
         readable_words = wpm * minutes
         wordcount = self._contents.split()
-        print(wordcount)
+        if self._words_already_read >= len(wordcount):
+            self._words_already_read = 0
         chunk_start = self._words_already_read
-        print(f"chunk_start = {chunk_start}")
         chunk_end = self._words_already_read + readable_words
-        print(f"chunk_end = {chunk_end}")
         newlist = wordcount[chunk_start:chunk_end]
         self._words_already_read = chunk_end
         return " ".join(newlist)

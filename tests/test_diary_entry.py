@@ -54,6 +54,11 @@ def test_reading_chunk_with_3_wpm_and_1_minutes_multiple_times():
     assert diary_entry.reading_chunk(1,1) == "six"
 
 """
-
+When all the words are read, #self._words_already_read loops back to the beginning of the chunk of contents.
 """
-    
+def test_reading_chunk_after_all_words_are_read():
+    diary_entry = DiaryEntry("My Title", "one two three four five six")
+    assert diary_entry.reading_chunk(3,1) == "one two three"
+    assert diary_entry.reading_chunk(2,1) == "four five"
+    assert diary_entry.reading_chunk(1,1) == "six"
+    assert diary_entry.reading_chunk(2,1) == "one two"
