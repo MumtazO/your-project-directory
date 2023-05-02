@@ -26,3 +26,7 @@ def test_diary_entry_reading_time():
     diary_entry = DiaryEntry("My Title", "These are the contents")
     result = diary_entry.reading_time(2)
     assert result == "this will take 2 minute(s) to read"
+
+''''
+given 
+'''
