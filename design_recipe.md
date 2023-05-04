@@ -107,7 +107,7 @@ For each example you create as a test, implement the behaviour that allows the f
 Then return to step 3 until you have addressed the problem you were given. You may also need to revise your design, for example if you realise you made a mistake earlier.
 
 
-Design a class exercise
+Design a class challenge
 
 1. Describe the Problem
 
@@ -182,6 +182,74 @@ def test_complete_task_removed():
     task_tracker.task_complete(1)
     result = task_tracker.task_list()
     assert result == ["walk the snail", "walk the plant"]
+    
+4. Implement the Behaviour
+For each example you create as a test, implement the behaviour that allows the function to return the right value for the given arguments.
+
+Then return to step 3 until you have addressed the problem you were given. You may also need to revise your design, for example if you realise you made a mistake earlier.
+
+
+
+
+
+
+
+
+Design a class challenge
+
+1. Describe the Problem
+
+As a user
+So that I can keep track of my music listening
+I want to add tracks I've listened to and see a list of them.
+
+2. Design the Function Signature
+
+
+The name of the function.
+
+"""
+class MusicTracker():
+    def add_music(self, song):
+        # Parameters:
+            #song: string representing the song the user adds
+        return pass
+
+    def get_music(self):
+        #Parameters:
+            #get_music: returns the list of the added songs.
+        return pass
+
+
+
+
+3. Create Examples as Tests
+
+"""
+Test that the #get_music contains an empty list at the beginning
+"""
+
+def test_music_tracker_empty():
+    music_tracker = MusicTracker():
+    result = music_tracker.get_music()
+    assert result == []
+
+"""
+Given a song #add_music adds to song to the list inside #get_music
+"""
+
+def test_music_tracker_added_multiple_songs():
+    music_tracker = MusicTracker():
+    music_tracker.add_music("die for you")
+    music_tracker.add_music("single ladies")
+    music_tracker.add_music("anti hero")
+    assert music_tracker.get_music == ["die for you", "single ladies", "anti hero"]
+
+"""
+Given 
+"""
+
+def test_
     
 4. Implement the Behaviour
 For each example you create as a test, implement the behaviour that allows the function to return the right value for the given arguments.
