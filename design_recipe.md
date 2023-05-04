@@ -105,3 +105,85 @@ task_tracker("TODO"): => "this is not pending"
 For each example you create as a test, implement the behaviour that allows the function to return the right value for the given arguments.
 
 Then return to step 3 until you have addressed the problem you were given. You may also need to revise your design, for example if you realise you made a mistake earlier.
+
+
+Design a class exercise
+
+1. Describe the Problem
+
+As a user
+So that I can keep track of my tasks
+I want a program that I can add todo tasks to and see a list of them.
+
+As a user
+So that I can focus on tasks to complete
+I want to mark tasks as complete and have them disappear from the list.
+
+2. Design the Function Signature
+
+
+The name of the function.
+
+"""
+class TaskTracker():
+    def add(self, task):
+    #Parameters:
+        #task: string, representing a task
+        pass
+
+    def task_list(self):
+    #Parameters:
+        #task_list returns list of added tasks 
+        pass
+    
+    def task_completed(self, index):
+    #Parameters:
+        #index: integer, representing index of task completed
+    #Side efects:
+        #task_completed remove tasks from #task_list
+        pass
+
+
+
+
+
+3. Create Examples as Tests
+
+"""
+Test if #task_list is empty when no task has been added
+"""
+
+def test_task_list_empty():
+    task_tracker = TaskTracker()
+    result = task_tracker.task_list()
+    assert result == []
+
+"""
+Given provided task, check if task is added to #task_list
+"""
+
+def test_add_new_task():
+    task_tracker = TaskTracker()
+    task_tracker.add("walk the snail")
+    task_tracker.add("walk the frog")
+    task_tracker.add("walk the plant")
+    result = task_tracker.task_list()
+    assert result == ["walk the snail", "walk the frog", "walk the plant"]
+
+"""
+Given completed task index, #task_completed removes task from #task_list
+"""
+
+def test_complete_task_removed():
+    task_tracker = TaskTracker()
+    task_tracker.add("walk the snail")
+    task_tracker.add("walk the frog")
+    task_tracker.add("walk the plant")
+    task_tracker.task_complete(1)
+    result = task_tracker.task_list()
+    assert result == ["walk the snail", "walk the plant"]
+    
+4. Implement the Behaviour
+For each example you create as a test, implement the behaviour that allows the function to return the right value for the given arguments.
+
+Then return to step 3 until you have addressed the problem you were given. You may also need to revise your design, for example if you realise you made a mistake earlier.
