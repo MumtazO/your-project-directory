@@ -19,3 +19,4 @@ def test_music_tracker_added_multiple_songs():
     music_tracker.add_music("single ladies")
     music_tracker.add_music("anti hero")
     assert music_tracker.get_music() == ["die for you", "single ladies", "anti hero"]
+
