@@ -1,3 +1,6 @@
+import math
+from lib.integration_diary_entry import *
+
 class Diary:
     def __init__(self):
         self._entries = []
@@ -16,7 +19,8 @@ class Diary:
         
 
     def count_words(self):
-        total_of_words = self._entries.split()
+        words = str(self._entries)
+        total_of_words = words.split()
         return len(total_of_words)
 
         # Returns:
@@ -26,15 +30,43 @@ class Diary:
         
 
     def reading_time(self, wpm):
+        minutecounts = self.count_words() / wpm
+        finalcount = math.ceil(minutecounts)
+        return finalcount
         # Parameters:
         #   wpm: an integer representing the number of words the user can read
         #        per minute
         # Returns:
         #   An integer representing an estimate of the reading time in minutes
         #   if the user were to read all entries in the diary.
-        pass
+        
 
     def find_best_entry_for_reading_time(self, wpm, minutes):
+        best_entry = None
+        highest_wpm = 0
+        max_words = wpm * minutes
+
+        for entry in DiaryEntry.contents:
+            entry_wpm = DiaryEntry.reading_time()
+
+            if entry_wpm > highest_wpm and DiaryEntry.count_words() <= max_words:
+                highest_wpm = entry_wpm
+                best_entry = entry
+            
+            return best_entry
+
+
+        # best_entry = None
+        # highest_wpm = 0
+        # for entry in self._entries:
+        #     count_words =  DiaryEntry.count_words
+        #     print(count_words)
+        #     entry_wpm = int(count_words) / wpm
+
+        #     if entry_wpm > highest_wpm and DiaryEntry.reading_time(entry_wpm) <= minutes:
+        #         highest_wpm = entry_wpm
+        #         best_entry = entry
+        # return best_entry
         # Parameters:
         #   wpm:     an integer representing the number of words the user can
         #            read per minute
@@ -44,4 +76,5 @@ class Diary:
         #   An instance of DiaryEntry representing the entry that is closest to,
         #   but not over, the length that the user could read in the minutes
         #   they have available given their reading speed.
-        pass
+        # for loop would have to check 
+        # wpm * minutes
